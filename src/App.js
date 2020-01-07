@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import {
+  Image,
   SafeAreaView,
   StatusBar,
   Text,
@@ -14,6 +15,9 @@ import {
 } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import useStyles from './AppStyles';
+
+const InfoIconDark = require('../assets/images/icon-info-dark.png');
+const InfoIconLight = require('../assets/images/icon-info-light.png');
 
 export default function(): React$Node {
   useEffect(() => {
@@ -33,6 +37,17 @@ export default function(): React$Node {
     <>
       <StatusBar barStyle={highContrast ? 'light-content' : 'dark-content'} />
       <SafeAreaView style={styles.outerView}>
+        <TouchableOpacity
+          accessible={true}
+          accessibilityLabel="Show info"
+          style={styles.infoButton}
+          onPress={() => {}}>
+          <Image
+            source={highContrast ? InfoIconLight : InfoIconDark}
+            style={styles.infoIcon}
+          />
+        </TouchableOpacity>
+
         <TouchableWithoutFeedback
           accessible={true}
           accessibilityLabel="Increment counter"

@@ -13,6 +13,17 @@ const defaults = {
   outerView: {
     flex: 1,
   },
+  infoButton: {
+    padding: 8,
+    position: 'absolute',
+    right: 24,
+    top: 48,
+    zIndex: 1,
+  },
+  infoIcon: {
+    height: 32,
+    width: 32,
+  },
   innerView: {
     alignItems: 'center',
     flex: 1,
