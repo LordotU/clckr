@@ -27,28 +27,37 @@ export default function(): React$Node {
   const resetCounter = () => setCount(0);
   const switchContrast = () => setHighContrast(!highContrast);
 
+  const styles = useStyles(highContrast);
+
   return (
     <>
       <StatusBar barStyle={highContrast ? 'light-content' : 'dark-content'} />
-      <SafeAreaView style={useStyles(highContrast).outerView}>
-        <TouchableWithoutFeedback onPress={incrementCounter}>
-          <View style={useStyles(highContrast).innerView}>
-            <Text style={useStyles(highContrast).clickerCount}>{count}</Text>
+      <SafeAreaView style={styles.outerView}>
+        <TouchableWithoutFeedback
+          accessible={true}
+          accessibilityLabel="Increment counter"
+          onPress={incrementCounter}>
+          <View style={styles.innerView}>
+            <Text style={styles.clickerCount} testID="counter">
+              {count}
+            </Text>
           </View>
         </TouchableWithoutFeedback>
 
         <TouchableOpacity
-          style={useStyles(highContrast).button}
+          accessible={true}
+          accessibilityLabel="Reset counter"
+          style={styles.button}
           onPress={resetCounter}>
-          <Text style={useStyles(highContrast).buttonInner}>Reset counter</Text>
+          <Text style={styles.buttonInner}>Reset counter</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={useStyles(highContrast).button}
+          accessible={true}
+          accessibilityLabel="Switch contrast"
+          style={styles.button}
           onPress={switchContrast}>
-          <Text style={useStyles(highContrast).buttonInner}>
-            Switch contrast
-          </Text>
+          <Text style={styles.buttonInner}>Switch contrast</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>
