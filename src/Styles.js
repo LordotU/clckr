@@ -6,7 +6,6 @@
 import { StyleSheet } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-const FONT_SIZE_100 = 240;
 const FONT_SIZE_100_DISPLAY_HEIGHT = 1242;
 
 const defaults = {
@@ -17,7 +16,7 @@ const defaults = {
     padding: 8,
     position: 'absolute',
     right: 24,
-    top: 48,
+    top: 40,
     zIndex: 1,
   },
   infoIcon: {
@@ -32,7 +31,7 @@ const defaults = {
   },
   clickerCount: {
     fontFamily: 'WorkSans-Thin',
-    fontSize: RFValue(FONT_SIZE_100, FONT_SIZE_100_DISPLAY_HEIGHT),
+    fontSize: RFValue(240, FONT_SIZE_100_DISPLAY_HEIGHT),
   },
   button: {
     paddingHorizontal: 32,
@@ -48,6 +47,23 @@ const defaults = {
     padding: 8,
     textAlign: 'center',
     width: '100%',
+  },
+  info: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  outerInfoLink: {
+    padding: 8,
+  },
+  infoLink: {
+    fontFamily: 'WorkSans-Thin',
+    fontSize: RFValue(48, FONT_SIZE_100_DISPLAY_HEIGHT),
+    textDecorationLine: 'underline',
+  },
+  infoVersion: {
+    fontFamily: 'WorkSans-Thin',
+    fontSize: RFValue(40, FONT_SIZE_100_DISPLAY_HEIGHT),
   },
 };
 
@@ -67,12 +83,20 @@ const contrast = {
     borderColor: 'white',
     color: 'white',
   },
+  infoLink: {
+    ...defaults.infoLink,
+    color: 'white',
+  },
+  infoVersion: {
+    ...defaults.infoVersion,
+    color: 'white',
+  },
 };
 
 const stylesDefaults = StyleSheet.create(defaults);
 
 const stylesContrast = StyleSheet.create(contrast);
 
-export default function(useContrast: boolean) {
+export default function(useContrast: boolean = false) {
   return useContrast ? stylesContrast : stylesDefaults;
 }
