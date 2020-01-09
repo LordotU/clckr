@@ -3,19 +3,22 @@
  * @flow
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import SplashScreen from 'react-native-splash-screen';
 
 import { StateProvider } from './store';
 import Home from './components/screens/Home';
 import Info from './components/screens/Info';
+import insideSafeAreaView from './components/HOC/insideSafeAreaView';
+import withStyles from './components/HOC/withStyles';
 
 const AppNavigator = createStackNavigator(
   {
-    Home,
-    Info,
+    Home: withStyles(insideSafeAreaView(Home)),
+    Info: withStyles(insideSafeAreaView(Info)),
   },
   {
     initialRouteName: 'Home',
@@ -28,6 +31,10 @@ const AppNavigator = createStackNavigator(
 const App = createAppContainer(AppNavigator);
 
 export default () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <StateProvider>
       <SafeAreaProvider>

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <View
+    accessibilityLabel="Show home"
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+        "padding": 8,
+        "position": "absolute",
+        "right": 24,
+        "top": 40,
+        "zIndex": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/icon-back-dark.png",
+        }
+      }
+      style={
+        Object {
+          "height": 32,
+          "width": 32,
+        }
+      }
+    />
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Open https://oleg.levsh.in"
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "padding": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontFamily": "WorkSans-Thin",
+            "fontSize": 52,
+            "textDecorationLine": "underline",
+          }
+        }
+      >
+        https://oleg.levsh.in
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "fontFamily": "WorkSans-Thin",
+          "fontSize": 43,
+        }
+      }
+    >
+      v
+      1.0.0
+    </Text>
+  </View>,
+]
+`;

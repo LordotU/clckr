@@ -19,7 +19,6 @@ export const reducer = (
 ) => {
   switch (type) {
     case actionTypes.SWITCH_CONTRAST:
-      console.log(state, type, payload);
       return { ...state, highContrast: payload };
     default:
       return state;

@@ -30,6 +30,7 @@ const defaults = {
     width: '100%',
   },
   clickerCount: {
+    color: 'black',
     fontFamily: 'WorkSans-Thin',
     fontSize: RFValue(240, FONT_SIZE_100_DISPLAY_HEIGHT),
   },
