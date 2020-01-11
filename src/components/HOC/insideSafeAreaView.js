@@ -11,11 +11,15 @@ import SafeAreaView from 'react-native-safe-area-view';
 
 import { context } from '../../store';
 
-export default function(Component) {
-  return function insideSafeAreaView(props) {
+type InjectedProps = {| styles: { outerView: { ...Iterable<any> } } |};
+
+export default function<Config, Instance>(
+  Component: React$AbstractComponent<Config, Instance>,
+): React$StatelessFunctionalComponent<{| ...Config, ...InjectedProps |}> {
+  return function insideSafeAreaView(props: {| ...Config, ...InjectedProps |}) {
     const {
       state: { highContrast },
-    } = useContext(context);
+    }: { state: { highContrast: boolean } } = useContext(context);
 
     return (
       <>

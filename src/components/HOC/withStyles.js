@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 /**
-  @flow
+ * @flow
  * @format
  */
 
@@ -10,11 +10,13 @@ import React, { useContext } from 'react';
 import { context } from '../../store';
 import useStyles from '../../Styles';
 
-export default function(Component) {
-  return function withStyles(props) {
+export default function<Config, Instance>(
+  Component: React$AbstractComponent<Config, Instance>,
+): React$StatelessFunctionalComponent<Config> {
+  return function withStyles(props: Config) {
     const {
       state: { highContrast },
-    } = useContext(context);
+    }: { state: { highContrast: boolean } } = useContext(context);
 
     const styles = useStyles(highContrast);
 

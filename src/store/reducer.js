@@ -7,16 +7,17 @@ import { createContext } from 'react';
 import { actionTypes } from './actions';
 import type { Action } from './actions';
 
-export const defaultState = {
+export type DefaultStateType = {
+  highContrast: boolean,
+};
+
+export const defaultState: DefaultStateType = {
   highContrast: false,
 };
 
-export const context = createContext<Object>(defaultState);
+export const context = createContext<DefaultStateType>(defaultState);
 
-export const reducer = (
-  state: typeof defaultState,
-  { type, payload }: Action,
-) => {
+export const reducer = (state: DefaultStateType, { type, payload }: Action) => {
   switch (type) {
     case actionTypes.SWITCH_CONTRAST:
       return { ...state, highContrast: payload };
