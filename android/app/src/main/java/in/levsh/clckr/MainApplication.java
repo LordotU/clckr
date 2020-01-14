@@ -1,4 +1,4 @@
-package com.clckr;
+package in.levsh.clckr;
 
 import android.app.Application;
 import android.content.Context;

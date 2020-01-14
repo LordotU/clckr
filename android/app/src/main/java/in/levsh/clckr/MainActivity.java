@@ -1,4 +1,4 @@
-package com.clckr;
+package in.levsh.clckr;
 
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen;

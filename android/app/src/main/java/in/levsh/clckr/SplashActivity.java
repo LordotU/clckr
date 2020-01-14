@@ -1,5 +1,5 @@
 
-package com.clckr; // Change this to your package name.
+package in.levsh.clckr; // Change this to your package name.
 
 import android.content.Intent;
 import android.os.Bundle;
