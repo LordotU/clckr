@@ -6,12 +6,28 @@
  */
 
 import React, { useContext } from 'react';
-import { StatusBar } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import { context } from '../../store';
 
 type InjectedProps = {| styles: { outerView: { ...Iterable<any> } } |};
+
+function getBarProps (highContrast) {
+  switch (Platform.OS) {
+    case 'android':
+      return {
+        backgroundColor: highContrast ? 'black' : 'white',
+        barStyle: highContrast ? 'light-content' : 'dark-content',
+      };
+    case 'ios':
+      return {
+        barStyle: highContrast ? 'light-content' : 'dark-content',
+      };
+    default:
+      return {};
+  }
+}
 
 export default function<Config, Instance>(
   Component: React$AbstractComponent<Config, Instance>,
@@ -23,7 +39,7 @@ export default function<Config, Instance>(
 
     return (
       <>
-        <StatusBar barStyle={highContrast ? 'light-content' : 'dark-content'} />
+        <StatusBar {...getBarProps(highContrast)} />
         <SafeAreaView
           style={props.styles.outerView}
           forceInset={{ top: 'always', bottom: 'always' }}>

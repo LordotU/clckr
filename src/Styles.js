@@ -10,6 +10,7 @@ const FONT_SIZE_100_DISPLAY_HEIGHT = 1242;
 
 const defaults = {
   outerView: {
+    backgroundColor: 'white',
     flex: 1,
   },
   infoButton: {
