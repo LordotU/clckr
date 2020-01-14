@@ -2,4 +2,7 @@
 
 ## Description
 
-## Known issues
+## Todos
+
+- [] Complete Flow typing
+- [] Android version
